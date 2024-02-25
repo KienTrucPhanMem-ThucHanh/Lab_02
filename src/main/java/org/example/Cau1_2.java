@@ -21,23 +21,23 @@ public class Cau1_2 {
         if(cu.getResult().isPresent()){
 
 //            Câu 1
-            System.out.println("========name of method");
-            cu.getResult().get().findAll(MethodDeclaration.class).forEach(m -> System.out.println(m.getName()));
-            System.out.println("========variables method");
-            cu.getResult().get().findAll(FieldDeclaration.class).forEach(abc -> System.out.println(abc.getVariables()));
+//            System.out.println("========name of method");
+//            cu.getResult().get().findAll(MethodDeclaration.class).forEach(m -> System.out.println(m.getName()));
+//            System.out.println("========variables method");
+//            cu.getResult().get().findAll(FieldDeclaration.class).forEach(abc -> System.out.println(abc.getVariables()));
 
-//            CompilationUnit compilationUnit = cu.getResult().get();
-//            Optional<PackageDeclaration> packageDeclaration = compilationUnit.getPackageDeclaration();
-//            if(packageDeclaration.isPresent()){
-//                System.out.println("package" + packageDeclaration.get().getName());
-//            }
-//
-//            ClassOrInterfaceDeclaration classOrInterfaceDeclaration = compilationUnit.findFirst(ClassOrInterfaceDeclaration.class).orElse(null);
-//            if(classOrInterfaceDeclaration != null){
-//                System.out.println("Class Name: " + classOrInterfaceDeclaration.getName());
-//                // Lấy Parent Node (thư mục cha)
-//                System.out.println("Parent Node (Package or CompilationUnit): " + classOrInterfaceDeclaration.getParentNode());
-//            }
+            CompilationUnit compilationUnit = cu.getResult().get();
+            Optional<PackageDeclaration> packageDeclaration = compilationUnit.getPackageDeclaration();
+            if(packageDeclaration.isPresent()){
+                System.out.println("package" + packageDeclaration.get().getName());
+            }
+
+            ClassOrInterfaceDeclaration classOrInterfaceDeclaration = compilationUnit.findFirst(ClassOrInterfaceDeclaration.class).orElse(null);
+            if(classOrInterfaceDeclaration != null){
+                System.out.println("Class Name: " + classOrInterfaceDeclaration.getName());
+                // Lấy Parent Node (thư mục cha)
+                System.out.println("Parent Node (Package or CompilationUnit): " + classOrInterfaceDeclaration.getParentNode());
+            }
         }
     }
 }
